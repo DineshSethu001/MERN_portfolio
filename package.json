@@ -1,0 +1,17 @@
+{
+  "name": "mern-backend-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Forest-themed MERN portfolio with an admin dashboard for managing projects and messages",
+  "scripts": {
+    "install:all": "npm install && npm --prefix server install && npm --prefix client install",
+    "dev": "concurrently -n api,web -c green,cyan \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
+    "seed": "npm --prefix server run seed",
+    "test": "npm --prefix server test",
+    "build": "npm --prefix client run build",
+    "start": "NODE_ENV=production npm --prefix server start"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
