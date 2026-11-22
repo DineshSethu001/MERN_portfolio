@@ -5,7 +5,8 @@ services:
     name: dinesh-portfolio
     runtime: node
     plan: free
-    buildCommand: npm run install:all && npm run build
+    # NODE_ENV=production makes npm skip devDependencies, but the client needs Vite to build.
+    buildCommand: npm --prefix server install --omit=dev && npm --prefix client install --include=dev && npm run build
     startCommand: npm start
     healthCheckPath: /api/health
     envVars:
